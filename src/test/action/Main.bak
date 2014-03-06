@@ -1,0 +1,9 @@
+package test.action;
+
+public class Main {
+	public static void main(String []  args){
+		Super s1 = new SubTest1();
+		String view = s1.action();
+		System.out.println(view);
+	}
+}

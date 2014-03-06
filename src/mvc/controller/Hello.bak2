@@ -1,0 +1,26 @@
+package mvc.controller;
+
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Hello extends HttpServlet {
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		String uri = request.getRequestURI();
+		System.out.println(uri);
+		String view = "";
+		if (uri.equals("/jsp/main.nhn")) {
+			view = "/member/main.jsp";
+		} else if (uri.equals("/jsp/list.nhn")) {
+			view = "/board/list.jsp";
+		} else {
+			view = "/member/else.jsp";
+		}
+		RequestDispatcher rd = request.getRequestDispatcher(view);
+		rd.forward(request, response);
+	}
+}

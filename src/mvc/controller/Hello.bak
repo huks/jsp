@@ -1,0 +1,40 @@
+package mvc.controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class Hello_bak extends HttpServlet {
+	
+	public void init(ServletConfig config) throws ServletException {
+		// init
+		String message = config.getInitParameter("message");
+		System.out.println("init");
+		System.out.println(message);
+	}
+	
+	protected void service(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("service");
+		String name = request.getParameter("name");
+		String view = "";
+		if(name == null){
+			view = "/0305/default.jsp";
+		} else if (name.equals("java")){
+			view = "/0305/result.jsp";
+		} else {
+			view = "/0305/test.jsp";
+		}
+		
+		// request.setAttribute("id", "admin");
+		// request.setAttribute("count", new Integer(100));
+		
+		RequestDispatcher rd = request.getRequestDispatcher(view);
+		rd.forward(request, response);
+	}
+}
