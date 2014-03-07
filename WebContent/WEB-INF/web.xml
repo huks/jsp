@@ -15,4 +15,17 @@
     <servlet-name>Controller</servlet-name>
     <url-pattern>*.nhn</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>board</servlet-name>
+  	<servlet-class>ch19.controller.ControllerAction</servlet-class>
+  	<init-param>
+    	<param-name>propertyConfig</param-name>
+    	<param-value>D:\kh\khE\jsp\WebContent\WEB-INF\properties\CommandPro.properties</param-value>
+    </init-param>
+  </servlet>  
+  <servlet-mapping>
+    <servlet-name>board</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>
